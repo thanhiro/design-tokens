@@ -10,4 +10,12 @@ jobs:
           node-version: 16.15.0
       - run: npm ci
       - run: npm run build
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name valamisstorage --auth-mode key -d 'design-tokens' -s ./build
       - run: echo "🍏 This job's status is ${{ job.status }}."
