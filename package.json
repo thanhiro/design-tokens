@@ -1,0 +1,21 @@
+{
+  "name": "design-tokens",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "style-dictionary build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valamis/design-tokens.git"
+  },
+  "author": "valamis",
+  "bugs": {
+    "url": "https://github.com/Valamis/design-tokens/issues"
+  },
+  "homepage": "https://github.com/Valamis/design-tokens#readme",
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  }
+}
