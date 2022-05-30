@@ -1,4 +1,25 @@
 module.exports = {
+  source: ["tokens.json"],
+  transform: {
+    lineHeightTransform: {
+      type: "value",
+      matcher: function (prop) {
+        return prop.attributes.category === "lineHeights";
+      },
+      transformer: function (prop) {
+        return `${prop.original.value / 100}rem`;
+      },
+    },
+    spacingTransform: {
+      type: "value",
+      matcher: function (prop) {
+        return prop.attributes.category === "spacing";
+      },
+      transformer: function (prop) {
+        return `${prop.original.value / 16}rem`;
+      },
+    },
+  },
   parsers: [
     {
       pattern: /\.json$/,
@@ -7,24 +28,29 @@ module.exports = {
       },
     },
   ],
-  source: ["tokens.json"],
   platforms: {
     scss: {
       transformGroup: "scss",
       buildPath: "build/",
       files: [
         {
-          destination: "scss/_variables.scss",
+          destination: "scss/variables.scss",
           format: "scss/variables",
         },
       ],
     },
     web: {
-      transformGroup: "web",
+      transforms: [
+        "attribute/cti",
+        "name/cti/kebab",
+        "spacingTransform",
+        "size/px",
+        "color/css",
+      ],
       buildPath: "build/",
       files: [
         {
-          destination: "json/_variables.json",
+          destination: "json/variables.json",
           format: "json/nested",
         },
       ],
