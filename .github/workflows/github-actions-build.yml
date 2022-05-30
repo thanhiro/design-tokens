@@ -17,5 +17,5 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload-batch --account-name valamisstorage --auth-mode key -d 'design-tokens' -s ./build
+            az storage blob upload-batch --account-name valamisstorage --auth-mode key --overwrite -d 'design-tokens' -s ./build
       - run: echo "🍏 This job's status is ${{ job.status }}."
