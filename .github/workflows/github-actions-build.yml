@@ -18,4 +18,7 @@ jobs:
         with:
           inlineScript: |
             az storage blob upload-batch --account-name valamisstorage --auth-mode key --overwrite -d 'design-tokens' -s ./build
+      - name: Trigger webhook to clear token cache
+        run: |
+          curl -X GET "https://jyn.lab.valamis.io/c/portal/theme/token_refresh"
       - run: echo "🍏 This job's status is ${{ job.status }}."
