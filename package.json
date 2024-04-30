@@ -8,14 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Valamis/design-tokens.git"
+    "url": "git+https://github.com/thanhiro/design-tokens.git"
   },
   "author": "valamis",
   "bugs": {
-    "url": "https://github.com/Valamis/design-tokens/issues"
+    "url": "https://github.com/thanhiro/design-tokens/issues"
   },
-  "homepage": "https://github.com/Valamis/design-tokens#readme",
+  "homepage": "https://github.com/thanhiro/design-tokens#readme",
   "devDependencies": {
-    "style-dictionary": "^3.7.0"
+    "@tokens-studio/sd-transforms": "^0.15.2",
+    "style-dictionary": "^3.9.2"
   }
 }
