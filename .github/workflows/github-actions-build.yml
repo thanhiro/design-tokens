@@ -7,18 +7,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.15.0
+          node-version: 20.12.2
       - run: npm ci
       - run: npm run build
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Upload to blob storage
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az storage blob upload-batch --account-name valamisstorage --auth-mode key --overwrite -d 'design-tokens' -s ./build
-      - name: Trigger webhook to clear token cache
-        run: |
-          curl -X GET "https://jyn.lab.valamis.io/c/portal/theme/token_refresh"
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+#      - run: npm run upload
+    

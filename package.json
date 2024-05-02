@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "node ./build.js",
-    "style-dictionary": "style-dictionary"
+    "style-dictionary": "style-dictionary",
+    "upload": "node ./blob-upload.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/thanhiro/design-tokens#readme",
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^0.15.2",
+    "@vercel/blob": "^0.23.2",
     "style-dictionary": "^4.0.0-prerelease.26"
   }
 }
