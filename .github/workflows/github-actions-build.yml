@@ -5,10 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: pnpm-setup
+        uses: pnpm/action-setup@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20.12.2
-      - run: npm ci
-      - run: npm run build
+          cache: "pnpm"
+      - run: pnpm i
+      - run: pnpm build
 #      - run: npm run upload
-    

@@ -21,6 +21,11 @@
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^0.15.2",
     "@vercel/blob": "^0.23.2",
-    "style-dictionary": "^4.0.0-prerelease.26"
+    "style-dictionary": "4.0.0-prerelease.26"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@tokens-studio/sd-transforms@0.15.2": "patches/@tokens-studio__sd-transforms@0.15.2.patch"
+    }
   }
 }
