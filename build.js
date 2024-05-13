@@ -67,7 +67,6 @@ const sd = await sdInstance.extend({
         "attribute/cti",
         "color/css",
         "ts/typography/fontWeight",
-        "ts/typography/css/shorthand",
         "custom/letterspacing/em",
       ],
       buildPath: "build/json/",
