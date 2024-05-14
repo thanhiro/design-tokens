@@ -27,6 +27,14 @@ sdInstance.registerTransform({
   },
 });
 
+sdInstance.registerFilter({
+  name: 'shouldDrop',
+  matcher: function(token) {
+    return !(token.type === "fontWeights" && token.name.includes("-italic") || token.name.includes("Italic"));
+  }
+})
+
+
 const sd = await sdInstance.extend({
   source: ["tokens.json"],
   parsers: [
@@ -34,11 +42,9 @@ const sd = await sdInstance.extend({
       pattern: /\.json$/,
       parse: ({ _filePath, contents }) => {
         const c = JSON.parse(contents);
-        return {
-          core: c.core.core,
-          button: c.button.button,
-          checkbox: c.checkbox.checkbox,
-        };
+        const core = c['core'];
+        delete c['core'];
+        return { ...core, ...c };
       },
     },
   ],
@@ -59,6 +65,7 @@ const sd = await sdInstance.extend({
         {
           destination: "variables.css",
           format: "css/variables",
+          filter: "shouldDrop",
         },
       ],
     },
@@ -74,11 +81,12 @@ const sd = await sdInstance.extend({
         {
           destination: "variables.json",
           format: "json/nested",
+          filter: "shouldDrop",
         },
       ],
     },
   },
 });
 
-sd.cleanAllPlatforms();
+//sd.cleanAllPlatforms();
 sd.buildAllPlatforms();
