@@ -1,8 +1,7 @@
 {
-  "name": "design-tokens",
+  "name": "uiotp-design-tokens",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "Design Tokens for Unifier Portal",
   "type": "module",
   "scripts": {
     "build": "node ./build.js",
@@ -11,13 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thanhiro/design-tokens.git"
+    "url": "git+https://bitbucket.org/aeriscom/uiotp-design-tokens.git"
   },
-  "author": "valamis",
-  "bugs": {
-    "url": "https://github.com/thanhiro/design-tokens/issues"
-  },
-  "homepage": "https://github.com/thanhiro/design-tokens#readme",
+  "author": "Aeris",
+  "homepage": "https://bitbucket.org/aeriscom/uiotp-design-tokens/src/main/README.md",
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^0.15.2",
     "@vercel/blob": "^0.23.2",

@@ -1,181 +1,90 @@
-# Basic Style Dictionary
+# Design Tokens for Unified Portal Platform
 
-This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
-```bash
-style-dictionary build
-```
+This project is the master repository for the Unifier Portal Design Tokens. It serves as a centralized source for managing and distributing design tokens across various platforms and applications within the Unified Portal ecosystem.
 
-You should see something like this output:
-```
-Copying starter files...
+## Overview
 
-Source style dictionary starter files created!
+The Design Tokens for Unified Portal Platform project uses the [Style Dictionary](https://amzn.github.io/style-dictionary/) tool to convert Figma's Tokens Studio managed design tokens into platform-specific formats such as `.css` and `.js` files. These files can then be consumed by various implementations within the Unified Portal ecosystem, ensuring a consistent and cohesive user experience.
 
-Running `style-dictionary build` for the first time to generate build artifacts.
+## What are Design Tokens?
 
+Design tokens are a way to represent and manage design values in a centralized and organized manner. They provide a single source of truth for design values, making it easier to maintain consistency across different platforms and applications. They were invented by Salesforce and are now used widely in various organizations.
 
-scss
-✔︎  build/scss/_variables.scss
+Design tokens are closely related to Design Systems. Tokens are the foundation of a Design System; the building blocks that define the visual characteristics and properties of a design, in a systematic manner.
 
-android
-✔︎  build/android/font_dimens.xml
-✔︎  build/android/colors.xml
+For more information on design tokens, you can refer to the following resources:
 
-compose
-✔︎ build/compose/StyleDictionaryColor.kt
-✔︎ build/compose/StyleDictionarySize.kt
+- [Design Tokens by Salesforce](https://cult.honeypot.io/reads/design-tokens-with-theo-desforge/)
+- [Introducing Design Tokens](https://css-tricks.com/introducing-design-tokens/)
+- [Material Design tokens](https://m3.material.io/foundations/design-tokens/overview)
 
-ios
-✔︎  build/ios/StyleDictionaryColor.h
-✔︎  build/ios/StyleDictionaryColor.m
-✔︎  build/ios/StyleDictionarySize.h
-✔︎  build/ios/StyleDictionarySize.m
+## Getting Started
 
-ios-swift
-✔︎  build/ios-swift/StyleDictionary.swift
+To get started with the Design Tokens for Unified Portal Platform project, follow these steps:
 
-ios-swift-separate-enums
-✔︎  build/ios-swift/StyleDictionaryColor.swift
-✔︎  build/ios-swift/StyleDictionarySize.swift
-```
+1. Install dependencies: `pnpm install`
+2. Build the design tokens: `pnpm run build`
 
-Good for you! You have now built your first style dictionary! Moving on, take a look at what we have built. This should have created a build directory and it should look like this:
-```
-├── README.md
-├── config.json
-├── tokens/
-│   ├── color/
-│       ├── base.json
-│       ├── font.json
-│   ├── size/
-│       ├── font.json
-├── build/
-│   ├── android/
-│      ├── font_dimens.xml
-│      ├── colors.xml
-│   ├── compose/
-│      ├── StyleDictionaryColor.kt
-│      ├── StyleDictionarySize.kt
-│   ├── scss/
-│      ├── _variables.scss
-│   ├── ios/
-│      ├── StyleDictionaryColor.h
-│      ├── StyleDictionaryColor.m
-│      ├── StyleDictionarySize.h
-│      ├── StyleDictionarySize.m
-│   ├── ios-swift/
-│      ├── StyleDictionary.swift
-│      ├── StyleDictionaryColor.swift
-│      ├── StyleDictionarySize.swift
-```
+The build command will generate the platform-specific token files in the `build` directory.
 
-If you open `config.json` you will see there are 5 platforms defined: scss, android, compose, ios, and ios-swift. Each platform has a transformGroup, buildPath, and files. The buildPath and files of the platform should match up to the files what were built. The files built should look like these:
+They are currently _manually_ copied to uiotp-components project. TODO: automation.
 
-**Android**
-```xml
-<!-- font_dimens.xml -->
-<resources>
-  <dimen name="size_font_small">12.00sp</dimen>
-  <dimen name="size_font_medium">16.00sp</dimen>
-  <dimen name="size_font_large">32.00sp</dimen>
-  <dimen name="size_font_base">16.00sp</dimen>
-</resources>
+## Example
 
-<!-- colors.xml -->
-<resources>
-  <color name="color_base_gray_light">#ffcccccc</color>
-  <color name="color_base_gray_medium">#ff999999</color>
-  <color name="color_base_gray_dark">#ff111111</color>
-  <color name="color_base_red">#ffff0000</color>
-  <color name="color_base_green">#ff00ff00</color>
-  <color name="color_font_base">#ffff0000</color>
-  <color name="color_font_secondary">#ff00ff00</color>
-  <color name="color_font_tertiary">#ffcccccc</color>
-</resources>
-```
+Here's an example of a design token in the Style Dictionary format, along with the generated CSS properties and JSON fields:
 
-**Compose**
-```kotlin
-object StyleDictionaryColor {
-  val colorBaseGrayDark = Color(0xff111111)
-  val colorBaseGrayLight = Color(0xffcccccc)
-  val colorBaseGrayMedium = Color(0xff999999)
-  val colorBaseGreen = Color(0xff00ff00)
-  val colorBaseRed = Color(0xffff0000)
-  val colorFontBase = Color(0xffff0000)
-  val colorFontSecondary = Color(0xff00ff00)
-  val colorFontTertiary = Color(0xffcccccc)
-}
+**Design Token Definition**
 
-object StyleDictionarySize {
-  /** the base size of the font */
-  val sizeFontBase = 16.00.sp
-  /** the large size of the font */
-  val sizeFontLarge = 32.00.sp
-  /** the medium size of the font */
-  val sizeFontMedium = 16.00.sp
-  /** the small size of the font */
-  val sizeFontSmall = 12.00.sp
+```json
+// tokens.json
+{
+  "color": {
+    "background": {
+      "main": {
+        "value": "#393a36",
+        "type": "color"
+      }
+    }
+  }
 }
 ```
 
-**SCSS**
-```scss
-// variables.scss
-$color-base-gray-light: #cccccc;
-$color-base-gray-medium: #999999;
-$color-base-gray-dark: #111111;
-$color-base-red: #ff0000;
-$color-base-green: #00ff00;
-$color-font-base: #ff0000;
-$color-font-secondary: #00ff00;
-$color-font-tertiary: #cccccc;
-$size-font-small: 0.75rem;
-$size-font-medium: 1rem;
-$size-font-large: 2rem;
-$size-font-base: 1rem;
+**Generated CSS Properties**
+
+```css
+/* colors.css */
+:root {
+  --color-background-main: #393a36;
+}
 ```
 
-**iOS**
-```objc
-#import "StyleDictionaryColor.h"
+**Generated JSON Fields**
 
-@implementation StyleDictionaryColor
-
-+ (UIColor *)color:(StyleDictionaryColorName)colorEnum{
-  return [[self values] objectAtIndex:colorEnum];
+```json
+// tokens.json
+{
+  "color": {
+    "background": {
+      "main": "#393a36"
+    }
+  }
 }
-
-+ (NSArray *)values {
-  static NSArray* colorArray;
-  static dispatch_once_t onceToken;
-
-  dispatch_once(&onceToken, ^{
-    colorArray = @[
-[UIColor colorWithRed:0.800f green:0.800f blue:0.800f alpha:1.000f],
-[UIColor colorWithRed:0.600f green:0.600f blue:0.600f alpha:1.000f],
-[UIColor colorWithRed:0.067f green:0.067f blue:0.067f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.800f green:0.800f blue:0.800f alpha:1.000f]
-    ];
-  });
-
-  return colorArray;
-}
-
-@end
 ```
 
-Pretty nifty! This shows a few things happening:
-1. The build system does a deep merge of all the token JSON files defined in the `source` attribute of `config.json`. This allows you to split up the token JSON files however you want. There are 2 JSON files with `color` as the top level key, but they get merged properly.
-1. The build system resolves references to other design tokens. `{size.font.medium.value}` gets resolved properly.
-1. The build system handles references to token values in other files as well as you can see in `tokens/color/font.json`.
+You can then use these generated values in your CSS or JavaScript files to ensure consistency across your application:
 
-Now let's make a change and see how that affects things. Open up `tokens/color/base.json` and change `"#111111"` to `"#000000"`. After you make that change, save the file and re-run the build command `style-dictionary build`. Open up the build files and take a look.
+**CSS**
 
-**Huzzah!**
+```css
+.some-class {
+  background-color: var(--color-background-main);
+}
+```
 
-Now go forth and create! Take a look at all the built-in [transforms](https://amzn.github.io/style-dictionary/#/transforms?id=pre-defined-transforms) and [formats](https://amzn.github.io/style-dictionary/#/formats?id=pre-defined-formats).
+**JavaScript**
+
+```js
+import tokens from './tokens.json';
+
+const backgroundColor = tokens.color.background.main;
+```
