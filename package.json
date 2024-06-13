@@ -1,13 +1,17 @@
 {
-  "name": "uiotp-design-tokens",
+  "name": "@aeris/uiotp-design-tokens",
   "version": "1.0.0",
-  "description": "Design Tokens for Unifier Portal",
+  "description": "Design Tokens for Unified Portal",
   "type": "module",
   "scripts": {
     "build": "node ./build.js",
     "style-dictionary": "style-dictionary",
     "upload": "node ./blob-upload.js"
   },
+  "files": [
+    "build/**/*",
+    "tokens.json"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://bitbucket.org/aeriscom/uiotp-design-tokens.git"
