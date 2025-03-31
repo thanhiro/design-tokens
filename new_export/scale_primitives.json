@@ -1,0 +1,72 @@
+{
+  "space 1": {
+    "value": 4,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 2": {
+    "value": 8,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 3": {
+    "value": 12,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 4": {
+    "value": 16,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 5": {
+    "value": 20,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 6": {
+    "value": 24,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 7": {
+    "value": 28,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 8": {
+    "value": 32,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 9": {
+    "value": 36,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 10": {
+    "value": 40,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 11": {
+    "value": 56,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 12": {
+    "value": 64,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 13": {
+    "value": 72,
+    "type": "number",
+    "prefix": "scale_primitives"
+  },
+  "space 14": {
+    "value": 80,
+    "type": "number",
+    "prefix": "scale_primitives"
+  }
+}
